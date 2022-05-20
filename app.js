@@ -22,8 +22,8 @@ app.post("/", function (req, res) {
         email_address: email,
         status: "subscribed",
         merge_fields: {
-          fname: Firstname,
-          lname: Lastname,
+          FNAME: Firstname,
+          LNAME: Lastname,
         },
       },
     ],
@@ -37,7 +37,7 @@ app.post("/", function (req, res) {
 
   const request = https.request(url, options, function (response) {
     if (response.statusCode == 200) {
-      res.sendFile(`${__dirname}/success.html`);
+      res.sendFile(`${data.members[0].merge_fields.FNAME}`);
     } else {
       res.sendFile(`${__dirname}/failure.html`);
     }
