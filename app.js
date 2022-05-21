@@ -37,7 +37,7 @@ app.post("/", function (req, res) {
 
   const request = https.request(url, options, function (response) {
     if (response.statusCode == 200) {
-      res.sendFile(`${data.members[0].merge_fields.FNAME}`);
+      res.send(`${data.members[0].merge_fields.FNAME} Hello`);
     } else {
       res.sendFile(`${__dirname}/failure.html`);
     }
